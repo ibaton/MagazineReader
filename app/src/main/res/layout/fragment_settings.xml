@@ -10,6 +10,7 @@
         android:id="@+id/settingsList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_body"/>
+        tools:listitem="@layout/item_font_settings_item"
+        tools:itemCount="1"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
