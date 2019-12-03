@@ -14,7 +14,6 @@ class ArticleReaderViewModel(
 ) : BaseViewModel() {
 
     val newsArticle: Observable<NewsArticle> = newsManager.loadArticle(articleId)
-        .share()
         .observeOn(AndroidSchedulers.mainThread())
 
     private val viewActionsSubject = PublishSubject.create<ViewActions>()
