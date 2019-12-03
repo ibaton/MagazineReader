@@ -5,7 +5,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import se.treehou.newsreader.koin.*
 
-class App: Application() {
+class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -16,10 +16,19 @@ class App: Application() {
     /**
      * Setup dependency injection framework.
      */
-    private fun setupDependencyInjection(){
+    private fun setupDependencyInjection() {
         startKoin {
             androidContext(this@App)
-            modules(listOf(newsManagerModule, settingsModule, magazineBrowserModule, readerModule, articleModule))
+            modules(
+                listOf(
+                    newsManagerModule,
+                    themeManagerModule,
+                    settingsScreenModule,
+                    magazineBrowserScreenModule,
+                    readerScreenScreenModule,
+                    articleModule
+                )
+            )
         }
     }
 }

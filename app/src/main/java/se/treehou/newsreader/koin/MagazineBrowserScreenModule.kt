@@ -6,7 +6,7 @@ import org.koin.dsl.module
 import se.treehou.newsreader.screen.magazinebrowser.MagazineBrowserViewModel
 import se.treehou.newsreader.screen.magazinebrowser.adapters.MagazineBrowserController
 
-val magazineBrowserModule: Module = module {
+val magazineBrowserScreenModule: Module = module {
     viewModel { MagazineBrowserViewModel(get()) }
     factory { MagazineBrowserController() }
 }

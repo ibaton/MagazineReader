@@ -5,7 +5,6 @@ import android.view.*
 import androidx.core.app.ShareCompat
 import com.uber.autodispose.autoDisposable
 import kotlinx.android.synthetic.main.fragment_article.*
-import org.koin.android.ext.android.getKoin
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf

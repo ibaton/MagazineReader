@@ -10,6 +10,10 @@
         <item name="pageIndicatorColor">@color/page_indicator_color</item>
         <item name="pageIndicatorSelectedColor">@color/page_indicator_selected_color</item>
         <item name="pageIndicatorBackgroundColor">@color/page_indicator_background_color</item>
+
+        <item name="colorItemSeparator">#E2E2E2</item>
+
+        <item name="readerTextFont">@font/roboto_regular</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />

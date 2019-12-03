@@ -6,7 +6,7 @@ import org.koin.dsl.module
 import se.treehou.newsreader.screen.settings.SettingsViewModel
 import se.treehou.newsreader.screen.settings.adapters.SettingsController
 
-val settingsModule: Module = module {
-    viewModel { SettingsViewModel() }
+val settingsScreenModule: Module = module {
+    viewModel { SettingsViewModel(get()) }
     factory { SettingsController(get()) }
 }

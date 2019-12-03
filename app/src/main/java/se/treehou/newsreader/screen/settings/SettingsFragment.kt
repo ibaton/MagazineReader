@@ -35,10 +35,16 @@ class SettingsFragment : BaseFragment() {
     override fun onResume() {
         super.onResume()
 
-        controller.licenseClickedObservable
+        controller.licenseClickedStream
             .autoDisposable(scopeProvider)
             .subscribe {
                 viewModel.licenseClicked()
+            }
+
+        controller.fontClickedStream
+            .autoDisposable(scopeProvider)
+            .subscribe {
+                viewModel.fontClicked(it)
             }
 
         viewModel.viewActions
@@ -47,6 +53,13 @@ class SettingsFragment : BaseFragment() {
                 when (action) {
                     is ViewActions.OpenLicensePageAction -> openLicensePage()
                 }
+            }
+
+        viewModel.font
+            .autoDisposable(scopeProvider)
+            .subscribe {
+                controller.font = it
+                controller.requestModelBuild()
             }
     }
 

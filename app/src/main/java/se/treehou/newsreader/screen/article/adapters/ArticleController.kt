@@ -7,8 +7,9 @@ import se.treehou.newsreader.screen.article.adapters.items.bodyItem
 import se.treehou.newsreader.screen.article.adapters.items.imageItem
 import se.treehou.newsreader.screen.article.adapters.items.preambleItem
 import se.treehou.newsreader.screen.article.adapters.items.titleItem
+import se.treehou.newsreader.thememanager.ThemeManager
 
-class ArticleController() : EpoxyController() {
+class ArticleController(private val themeManager: ThemeManager) : EpoxyController() {
 
     var article: NewsArticle? = null
 
@@ -18,6 +19,7 @@ class ArticleController() : EpoxyController() {
         titleItem {
             id("title")
             text(article.title)
+            typeface(themeManager.getTypeface())
         }
 
         if (article.promoImage.isNotBlank()) {
@@ -30,6 +32,7 @@ class ArticleController() : EpoxyController() {
         preambleItem {
             id("preamble")
             text(article.preamble)
+            typeface(themeManager.getTypeface())
         }
 
         for (body in article.body) {
@@ -44,6 +47,7 @@ class ArticleController() : EpoxyController() {
         return bodyItem {
             id(body.text)
             text(body.text)
+            typeface(themeManager.getTypeface())
         }
     }
 

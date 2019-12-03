@@ -6,4 +6,9 @@
     <string name="settings">Settings</string>
     <string name="article">Article</string>
     <string name="third_party_licenses">Third-party licenses</string>
+    <string name="roboto">Roboto</string>
+    <string name="playfair_display">Playfair Display</string>
+    <string name="montserrat">Montserrat</string>
+    <string name="open_sans">Open Sans</string>
+    <string name="text_font">Typeface</string>
 </resources>

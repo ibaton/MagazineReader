@@ -3,4 +3,6 @@
     <attr name="pageIndicatorColor" format="reference|color" />
     <attr name="pageIndicatorSelectedColor" format="reference|color" />
     <attr name="pageIndicatorBackgroundColor" format="reference|color" />
+    <attr name="colorItemSeparator" format="reference|color" />
+    <attr name="readerTextFont" format="reference" />
 </resources>

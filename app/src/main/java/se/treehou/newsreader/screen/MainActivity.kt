@@ -53,13 +53,13 @@ class MainActivity : BaseActivity() {
     /**
      * Hides bottom navigation when not on root destination
      */
-    inner class NavBarHiderChangeListener: NavController.OnDestinationChangedListener{
+    inner class NavBarHiderChangeListener : NavController.OnDestinationChangedListener {
         override fun onDestinationChanged(
             controller: NavController,
             destination: NavDestination,
             arguments: Bundle?
         ) {
-            if(rootDestinations.contains(destination.id)){
+            if (rootDestinations.contains(destination.id)) {
                 navView.visibility = View.VISIBLE
             } else {
                 navView.visibility = View.GONE
