@@ -1,4 +1,4 @@
-package se.treehou.newsreader.screen.reader
+package se.treehou.newsreader.screen.magazine
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

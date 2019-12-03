@@ -17,13 +17,15 @@ class ArticleReaderViewModel(
         .share()
         .observeOn(AndroidSchedulers.mainThread())
 
-    val viewActions = PublishSubject.create<ViewActions>()
+    private val viewActionsSubject = PublishSubject.create<ViewActions>()
+    val viewActions: Observable<ViewActions> = viewActionsSubject.hide()
+        .observeOn(AndroidSchedulers.mainThread())
 
     fun clickedShareArticle() {
         newsArticle
             .autoDisposable(this)
             .subscribe {
-                viewActions.onNext(ViewActions.ShareArticleAction(it.title, it.source))
+                viewActionsSubject.onNext(ViewActions.ShareArticleAction(it.title, it.source))
             }
     }
 }

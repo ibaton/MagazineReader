@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/magazineListFragment">
+    app:startDestination="@id/magazineBrowserFragment">
 
     <fragment
-        android:id="@+id/readerFragment"
-        android:name="se.treehou.newsreader.screen.reader.MagazineFragment"
+        android:id="@+id/magazineFragment"
+        android:name="se.treehou.newsreader.screen.magazine.MagazineFragment"
         android:label="@string/reader"
         tools:layout="@layout/fragment_magazine">
         <action
@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/articleReaderFragment"
         android:name="se.treehou.newsreader.screen.article.ArticleReaderFragment"
-        android:label="ArticleReaderFragment"
+        android:label="@string/article"
         tools:layout="@layout/fragment_article">
         <argument
             android:name="article_id"
@@ -29,12 +29,18 @@
     </fragment>
 
     <fragment
-        android:id="@+id/magazineListFragment"
+        android:id="@+id/magazineBrowserFragment"
         android:name="se.treehou.newsreader.screen.magazinebrowser.MagazineBrowserFragment"
-        android:label="MagazineListFragment"
+        android:label="@string/magazines"
         tools:layout="@layout/fragment_magazine_browser">
         <action
             android:id="@+id/action_magazineListFragment_to_readerFragment"
-            app:destination="@id/readerFragment" />
+            app:destination="@id/magazineFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="se.treehou.newsreader.screen.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings"/>
 </navigation>
