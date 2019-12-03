@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/readerFragment">
+
+    <fragment
+        android:id="@+id/readerFragment"
+        android:name="se.treehou.newsreader.screen.reader.ReaderFragment"
+        android:label="@string/reader"
+        tools:layout="@layout/fragment_reader"/>
+
+    <fragment
+        android:id="@+id/articleReaderFragment"
+        android:name="se.treehou.newsreader.screen.article.ArticleReaderFragment"
+        android:label="ArticleReaderFragment">
+        <argument
+            android:name="article_id"
+            app:argType="string" />
+    </fragment>
+</navigation>
