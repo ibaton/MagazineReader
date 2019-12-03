@@ -7,9 +7,9 @@
     tools:context=".screen.reader.MagazineFragment">
 
     <com.airbnb.epoxy.EpoxyRecyclerView
-        android:id="@+id/articleView"
+        android:id="@+id/magazineList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_body"/>
+        tools:listitem="@layout/item_magazine"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

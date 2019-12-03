@@ -2,6 +2,7 @@ package se.treehou.newsmanager
 
 import se.treehou.newsmanager.model.Body.BodyImage
 import se.treehou.newsmanager.model.Body.BodyText
+import se.treehou.newsmanager.model.Magazine
 import se.treehou.newsmanager.model.NewsArticle
 
 val article1 = NewsArticle(
@@ -72,4 +73,11 @@ val article2 = NewsArticle(
                     "Domestic holidays pretty much fell out of fashion with the advent of budget flights; especially trips to seaside towns that Victorians enjoyed so much. But with a crappy economy, flight-shaming in the light of a climate crisis and our time-poor lifestyles, I’d argue they are on the rise again. So, see you at a bus station in the hinterland, checking timetables."
         )
     )
+)
+
+val magazine1 = Magazine(
+    id = "d75d6d0c-a0a5-4b34-88e9-d99319e6c28c",
+    title = "Theguardian - lifeandstyle nov 2019",
+    promoImage = "https://i.guim.co.uk/img/media/94ae0e43df717290e6a6b9dc92abccc2a82b32a4/0_223_3000_1800/master/3000.jpg?width=1225&quality=85&auto=format&fit=max&s=61aee3dc8d236c0ce57c234a48e3ea89",
+    articleIds = listOf(article1.id, article2.id)
 )

@@ -4,6 +4,7 @@ import android.app.Application
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import se.treehou.newsreader.koin.articleModule
+import se.treehou.newsreader.koin.magazineBrowserModule
 import se.treehou.newsreader.koin.newsManagerModule
 import se.treehou.newsreader.koin.readerModule
 
@@ -21,7 +22,7 @@ class App: Application() {
     private fun setupDependencyInjection(){
         startKoin {
             androidContext(this@App)
-            modules(listOf(newsManagerModule, readerModule, articleModule))
+            modules(listOf(newsManagerModule, magazineBrowserModule, readerModule, articleModule))
         }
     }
 }

@@ -9,5 +9,5 @@ import se.treehou.newsreader.screen.article.adapters.ArticleController
 
 val articleModule: Module = module {
     viewModel {(articleId: String) -> ArticleReaderViewModel(articleId, get()) }
-    factory { ArticleController(get()) }
+    factory { ArticleController() }
 }
