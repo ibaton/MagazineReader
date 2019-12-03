@@ -6,3 +6,4 @@ data class Magazine(
     val promoImage: String,
     val articleIds: List<String>
 )
+

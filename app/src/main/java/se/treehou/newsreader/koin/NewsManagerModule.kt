@@ -6,5 +6,5 @@ import se.treehou.newsmanager.NewsManager
 import se.treehou.newsmanager.StaticNewsManager
 
 val newsManagerModule: Module = module {
-    single<NewsManager> { StaticNewsManager() }
+    single<NewsManager> { StaticNewsManager(get()) }
 }

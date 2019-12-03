@@ -1,0 +1,23 @@
+[
+  {
+    "id": "d75d6d0c-a0a5-4b34-88e9-d99319e6c28c",
+    "title": "Theguardian - lifeandstyle nov 2019",
+    "promoImage": "https://i.guim.co.uk/img/media/94ae0e43df717290e6a6b9dc92abccc2a82b32a4/0_223_3000_1800/master/3000.jpg?width=1225&quality=85&auto=format&fit=max&s=61aee3dc8d236c0ce57c234a48e3ea89",
+    "articleIds": [
+      "0359bc68-5631-433e-9811-5ca38d23acb9",
+      "5be95dcd-a837-459f-aae9-24b337c5a337",
+      "182c06de-a515-46dc-b271-711f24d79747",
+      "37584e63-ab9a-4833-8afa-41b06077bdc7",
+      "fa265925-54c2-48ad-8729-fef03b0c597b"
+    ]
+  },
+  {
+    "id": "8a273c7e-f2fb-4555-910f-dd83c02170f0",
+    "title": "Android weekly #390",
+    "promoImage": "https://joebirch.files.wordpress.com/2019/11/group.png?w=820",
+    "articleIds": [
+      "200b8d52-f242-410e-be55-d2a8487810dd",
+      "ccf71518-327e-4ada-8c99-fba651d7f266"
+    ]
+  }
+]

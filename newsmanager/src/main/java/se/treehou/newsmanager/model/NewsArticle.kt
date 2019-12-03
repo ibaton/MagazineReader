@@ -9,7 +9,7 @@ data class NewsArticle(
     val body: List<Body>
 )
 
-sealed class Body{
-    data class BodyText(val text: String): Body()
-    data class BodyImage(val url: String): Body()
+sealed class Body {
+    data class BodyText(val text: String) : Body()
+    data class BodyImage(val url: String) : Body()
 }
