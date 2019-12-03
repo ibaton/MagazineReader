@@ -12,11 +12,12 @@ class MagazineBrowserViewModel(newsManager: NewsManager) : BaseViewModel() {
     val magazines: Observable<List<Magazine>> = newsManager.loadMagazines()
         .observeOn(AndroidSchedulers.mainThread())
 
-    val viewActions: PublishSubject<ViewActions> =
+    private val viewActionsSubject: PublishSubject<ViewActions> =
         PublishSubject.create<ViewActions>()
+    val viewActions: Observable<ViewActions> = viewActionsSubject.hide()
 
     fun magazineClicked(magazineId: String) {
-        viewActions.onNext(ViewActions.OpenMagazineAction(magazineId))
+        viewActionsSubject.onNext(ViewActions.OpenMagazineAction(magazineId))
     }
 
 }

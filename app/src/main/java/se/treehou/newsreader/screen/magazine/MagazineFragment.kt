@@ -1,4 +1,4 @@
-package se.treehou.newsreader.screen.reader
+package se.treehou.newsreader.screen.magazine
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,7 +19,7 @@ class MagazineFragment : BaseFragment() {
     private val viewModel: MagazineViewModel by viewModel { parametersOf(magazineId) }
     private lateinit var magazineId: String
 
-    private lateinit var articleAdapter: ArticlePager
+    private var articleAdapter: ArticlePager? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,11 +41,11 @@ class MagazineFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val fragmentManager = fragmentManager ?: return
 
-        articleAdapter = ArticlePager(fragmentManager)
+        articleAdapter = ArticlePager(childFragmentManager)
         articlePager.adapter = articleAdapter
     }
+
 
     override fun onResume() {
         super.onResume()
@@ -53,8 +53,8 @@ class MagazineFragment : BaseFragment() {
         viewModel.newsArticles
             .autoDisposable(scopeProvider)
             .subscribe { magazine ->
-                articleAdapter.articleIds = magazine.articleIds
-                articleAdapter.notifyDataSetChanged()
+                articleAdapter?.articleIds = magazine.articleIds
+                articleAdapter?.notifyDataSetChanged()
 
                 setTitle(magazine.title)
             }

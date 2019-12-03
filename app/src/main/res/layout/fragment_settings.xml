@@ -7,7 +7,7 @@
     tools:context=".screen.magazine.MagazineFragment">
 
     <com.airbnb.epoxy.EpoxyRecyclerView
-        android:id="@+id/articleView"
+        android:id="@+id/settingsList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_body"/>

@@ -33,4 +33,12 @@
         app:navGraph="@navigation/nav_graph"
         tools:layout="@layout/fragment_magazine" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/activity_navigation" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
