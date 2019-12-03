@@ -2,6 +2,7 @@ package se.treehou.newsreader.screen.article.adapters.items
 
 import android.graphics.Typeface
 import android.view.View
+import android.widget.TextView
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelClass
@@ -29,7 +30,7 @@ abstract class TitleItemModel : EpoxyModelWithHolder<TitleItemModel.Holder>() {
 
     class Holder : EpoxyHolder() {
 
-        lateinit var titleText: MaterialTextView
+        lateinit var titleText: TextView
 
         override fun bindView(itemView: View) {
             titleText = itemView.findViewById(R.id.title)
