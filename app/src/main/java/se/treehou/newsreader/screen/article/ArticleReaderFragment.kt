@@ -1,9 +1,8 @@
 package se.treehou.newsreader.screen.article
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.core.app.ShareCompat
 import com.uber.autodispose.autoDisposable
 import kotlinx.android.synthetic.main.fragment_article.*
 import org.koin.android.ext.android.getKoin
@@ -14,6 +13,9 @@ import se.treehou.newsreader.R
 import se.treehou.newsreader.screen.BaseFragment
 import se.treehou.newsreader.screen.article.adapters.ArticleController
 
+/**
+ * Fragment used for showing a single article.
+ */
 class ArticleReaderFragment : BaseFragment() {
 
     private val viewModel: ArticleReaderViewModel by viewModel { parametersOf(articleId) }
@@ -28,6 +30,8 @@ class ArticleReaderFragment : BaseFragment() {
 
         articleId = ArticleReaderFragmentArgs.fromBundle(arguments).articleId
         getKoin().setProperty(ARG_ARTICLE_ID, articleId)
+
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -43,6 +47,12 @@ class ArticleReaderFragment : BaseFragment() {
         articleView.setControllerAndBuildModels(controller)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_reader, menu)
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
     override fun onResume() {
         super.onResume()
 
@@ -52,6 +62,34 @@ class ArticleReaderFragment : BaseFragment() {
                 controller.article = it
                 controller.requestModelBuild()
             }
+
+        viewModel.viewActions
+            .autoDisposable(scopeProvider)
+            .subscribe{ action ->
+                when(action){
+                    is ViewActions.ShareArticleAction -> shareArticle(action.title, action.url)
+                }
+            }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_share -> viewModel.clickedShareArticle()
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    /**
+     * Fires an intent to share article by linking them to the original news source.
+     */
+    private fun shareArticle(title: String, url: String) {
+        ShareCompat.IntentBuilder
+            .from(activity)
+            .setType("text/plain")
+            .setText("$title - $url")
+            .setChooserTitle(R.string.share)
+            .startChooser()
     }
 
     companion object {
