@@ -29,7 +29,6 @@ class ArticleReaderFragment : BaseFragment() {
             ?: throw Exception("Argument must be provided to ${ArticleReaderFragment::class.java.simpleName}")
 
         articleId = ArticleReaderFragmentArgs.fromBundle(arguments).articleId
-        getKoin().setProperty(ARG_ARTICLE_ID, articleId)
 
         setHasOptionsMenu(true)
     }

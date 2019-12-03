@@ -5,26 +5,38 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.uber.autodispose.autoDisposable
-import kotlinx.android.synthetic.main.fragment_reader.*
+import kotlinx.android.synthetic.main.fragment_magazine.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 import se.treehou.newsreader.R
 import se.treehou.newsreader.screen.BaseFragment
 
 /**
  * Fragment used for showing a collection articles.
  */
-class ReaderFragment : BaseFragment() {
+class MagazineFragment : BaseFragment() {
 
-    private val viewModel: ReaderViewModel by viewModel()
+    private val viewModel: MagazineViewModel by viewModel { parametersOf(magazineId) }
+    private lateinit var magazineId: String
+
     private lateinit var articleAdapter: ArticlePager
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val arguments = arguments
+            ?: throw Exception("Argument must be provided to ${MagazineFragment::class.java.simpleName}")
+
+        magazineId = MagazineFragmentArgs.fromBundle(arguments).magazineId
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_reader, container, false)
+        return inflater.inflate(R.layout.fragment_magazine, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,9 +52,11 @@ class ReaderFragment : BaseFragment() {
 
         viewModel.newsArticles
             .autoDisposable(scopeProvider)
-            .subscribe {
-                articleAdapter.articles = it
+            .subscribe { magazine ->
+                articleAdapter.articleIds = magazine.articleIds
                 articleAdapter.notifyDataSetChanged()
+
+                setTitle(magazine.title)
             }
     }
 }

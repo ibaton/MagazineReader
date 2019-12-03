@@ -3,20 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/readerFragment">
+    app:startDestination="@id/magazineListFragment">
 
     <fragment
         android:id="@+id/readerFragment"
-        android:name="se.treehou.newsreader.screen.reader.ReaderFragment"
+        android:name="se.treehou.newsreader.screen.reader.MagazineFragment"
         android:label="@string/reader"
-        tools:layout="@layout/fragment_reader"/>
+        tools:layout="@layout/fragment_magazine">
+        <action
+            android:id="@+id/action_readerFragment_to_articleReaderFragment"
+            app:destination="@id/articleReaderFragment" />
+        <argument
+            android:name="magazineId"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/articleReaderFragment"
         android:name="se.treehou.newsreader.screen.article.ArticleReaderFragment"
-        android:label="ArticleReaderFragment">
+        android:label="ArticleReaderFragment"
+        tools:layout="@layout/fragment_article">
         <argument
             android:name="article_id"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/magazineListFragment"
+        android:name="se.treehou.newsreader.screen.magazinebrowser.MagazineBrowserFragment"
+        android:label="MagazineListFragment"
+        tools:layout="@layout/fragment_magazine_browser">
+        <action
+            android:id="@+id/action_magazineListFragment_to_readerFragment"
+            app:destination="@id/readerFragment" />
     </fragment>
 </navigation>
